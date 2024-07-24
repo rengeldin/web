@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Mochiy Pop One', sans-serif;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    background: none;
+}
+
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -1;
+}
+
+#logoEsquina {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    height: auto;
+    z-index: 1000; /* Para asegurarse de que siempre esté por encima de otros elementos */
+}
+
+h1 {
+    width: fit-content;
+    background-color: #fff;
+    margin: 40px auto;
+    border-radius: 60px;
+    box-shadow: 5px 5px 0 #000;
+    padding: 20px 30px;
+    font-size: 2em; /* Tamaño de letra para el encabezado */
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    font-size: 12px;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+#pantalla-inicial, #pantalla-final {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+ 
+}
+
+.btn {
+    border: none;
+    background: #34289e; /* Lila */
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.2em; /* Tamaño de letra más grande */
+    transition: transform 0.3s, background 0.3s;
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos hijos */
+    justify-content: center; /* Centra horizontalmente los elementos hijos */
+    margin-top: 20px; /* Añade espacio entre el botón y el título */
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background: #382c44; /* Un tono más oscuro de lila */
+}
+
+.btn::before {
+    content: "🎮"; /* Añade un icono antes del texto */
+    margin-right: 10px;
+    font-size: 1.5em; /* Tamaño del icono */
+}
+
+#pantalla-inicial h1, #pantalla-final h2 {
+    font-size: 2em; /* Aumenta el tamaño de la letra del título */
+    color: #030303; /* Un tono más oscuro de lila para el título */
+    margin-bottom: 20px; /* Añade espacio entre el título y el botón */
+}
+
+#pantalla-final .resultado {
+    font-size: 1.5em; /* Aumenta el tamaño de la letra de los resultados */
+    color: #070707; /* Un tono más oscuro de lila para el texto de resultados */
+    margin: 10px 0; /* Espacio entre los resultados */
+}
+
+#pantalla-juego {
+    display: none;
+}
+
+.pantalla-juego {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.pantalla-juego img {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 5px solid #0d0d0e;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.pantalla-juego img:hover {
+    transform: scale(1.05);
+}
+
+.pantalla-juego .pregunta {
+    font-size: 1.5em; /* Tamaño de letra para las preguntas */
+    padding: 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 20px;
+}
+
+.pantalla-juego .opciones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.opcion {
+    display: flex;
+    justify-content: center;  /* Asegura que los elementos hijos estén centrados horizontalmente */
+    align-items: center;
+    margin: 10px auto;
+    cursor: pointer;
+    width: 80%;
+    transition: transform 0.3s ease-in-out; /* Asegura una transición suave */
+}
+
+/* Clase para la animación de escala en las opciones de respuesta al pasar el ratón */
+.opcion:hover {
+    transform: scale(1.1); /* Ajusta el valor según tus necesidades */
+}
+
+/* Clase para la letra de la opción */
+.opcion .letra {
+    font-size: 30px; /* Ajusta este valor según tus necesidades */
+    background-color: #6414f8ce;
+    width: 50px;
+    height: 50px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 50px;
+    margin-right: 10px;
+}
+
+/* Clase para el texto de la opción */
+.opcion .nombre {
+    font-size: 25px; /* Ajusta este valor según tus necesidades */
+    background: #fff;
+    flex: 1;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center; /* Centra el texto dentro del div */
+    display: inline-block;
+    max-width: 50%;
+    word-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.opcion .nombreAcertada {
+    background-color: yellowgreen;
+    color: #fff;
+}
+
+.opcion .letraAcertada {
+    background-color: yellowgreen;
+    color: #fff;
+}
+
+.opcion .nombreNoAcertada {
+    background-color: darkred;
+    color: #fff;
+}
+
+.opcion .letraNoAcertada {
+    background-color: darkred;
+    color: #fff;
+}
+
+#pantalla-final {
+    display: none;
+}
+
+#pantalla-final #numCorrectas, #pantalla-final #numIncorrectas {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    font-size: 25px;
+    line-height: 50px;
+    margin: 0 10px;
+}
+
+#pantalla-final #numCorrectas {
+    background-color: chartreuse;
+}
+
+#pantalla-final #numIncorrectas {
+    background-color: darkred;
+}
+
+/* Añadir estas clases para agrandar el texto */
+#pantalla-final .resultado {
+    font-size: 2em; /* Ajusta este valor según tus necesidades */
+    margin: 20px 0;
+}
+
+#pantalla-inicial h2 {
+    font-size: 1.5em; /* Ajusta este valor según tus necesidades */
+}
